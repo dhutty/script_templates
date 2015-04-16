@@ -53,8 +53,15 @@ def main():
     parser.add_argument("--logfile", dest="logfile", metavar="FILENAME",
                         help="Send log messages to a file")
     # script-specific options here
-    
+    parser.add_argument('--feature', dest='feature', action='store_true',
+         help='Enable feature')
+    parser.add_argument('--no-feature', dest='feature', action='store_false',
+         help='Disable feature, default')
+    parser.set_defaults(feature=False)
+
     options = parser.parse_args()
+    # do_feature() if options.feature
+
     setup_logging(options)
 
     # Your code here.
